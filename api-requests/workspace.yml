@@ -1,0 +1,12 @@
+opencollection: 1.0.0
+info:
+  name: "api-requests"
+  type: workspace
+
+collections:
+  - name: "login"
+    path: "collections/login"
+
+specs:
+
+docs: ''

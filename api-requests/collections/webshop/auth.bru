@@ -1,0 +1,25 @@
+meta {
+  name: auth
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/auth/login
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  username: user
+  password: pass
+}
+
+script:post-response {
+  bru.setVar("authToken", res.body.token)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

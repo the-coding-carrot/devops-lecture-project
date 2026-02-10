@@ -1,0 +1,15 @@
+meta {
+  name: place order
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/checkout/placeorder
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{authToken}}
+}
