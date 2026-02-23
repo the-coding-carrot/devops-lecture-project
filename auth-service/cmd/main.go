@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/the-coding-carrot/devops-lecture-project/internal"
+	"github.com/the-coding-carrot/devops-lecture-project/auth-service/internal"
 )
 
 func main() {

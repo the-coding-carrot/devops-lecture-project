@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/the-coding-carrot/devops-lecture-project/pkg"
+	"github.com/the-coding-carrot/devops-lecture-project/auth-service/pkg"
 )
 
 // Static data for three products
