@@ -13,6 +13,7 @@ var products = []pkg.Product{
 	{ID: 1, Name: "Minecraft", Price: 24.99},
 	{ID: 2, Name: "Grand Theft Auto V", Price: 59.99},
 	{ID: 3, Name: "Assassin's Creed II", Price: 39.99},
+	{ID: 4, Name: "Star Wars: Jedi Survivor", Price: 89.99},
 }
 
 func ProductListHandler(w http.ResponseWriter, r *http.Request) {
