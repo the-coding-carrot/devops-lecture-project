@@ -20,3 +20,11 @@ jobs:
         run: |
           echo ${{ steps.service.outputs.service }}
           echo ${{ steps.service.outputs.version }}
+
+        # Setup Docker
+        # Docker Build
+        # Build based on service and version
+        # Dockerhub Login
+        # Docker push
+
+        
