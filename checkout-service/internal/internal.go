@@ -7,13 +7,6 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/checkout-service/pkg"
 )
 
-// Static data for three products
-var products = []pkg.Product{
-	{ID: 1, Name: "Minecraft", Price: 24.99},
-	{ID: 2, Name: "Grand Theft Auto V", Price: 59.99},
-	{ID: 3, Name: "Assassin's Creed II", Price: 39.99},
-}
-
 func CheckoutPlaceOrderHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
