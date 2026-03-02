@@ -10,7 +10,6 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
-	// Auth
 	mux.HandleFunc("/auth/login", internal.AuthLoginHandler)
 	mux.HandleFunc("/auth/logout", internal.AuthLogoutHandler)
 	port := 8080
