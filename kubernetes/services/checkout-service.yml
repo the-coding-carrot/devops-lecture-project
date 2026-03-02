@@ -4,7 +4,7 @@ metadata:
   name: checkout-service
 spec:
   selector:
-    app.kubernetes.io/name: checkout
+    app: checkout
   ports:
     - protocol: TCP
       port: 80

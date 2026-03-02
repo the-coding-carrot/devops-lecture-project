@@ -8,6 +8,7 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/checkout-service/internal"
 )
 
+// checkout service
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/checkout/placeorder", internal.CheckoutPlaceOrderHandler)
