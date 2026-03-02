@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/the-coding-carrot/devops-lecture-project/compare/auth-service-1.2.0...auth-service-1.2.1) (2026-03-02)
+
+
+### Bug Fixes
+
+* added kubernetes files (fix to trigger release-please ([#20](https://github.com/the-coding-carrot/devops-lecture-project/issues/20)) ([731ec56](https://github.com/the-coding-carrot/devops-lecture-project/commit/731ec5601476cefc8876697b4e35739527bf88db))
+
 ## [1.2.0](https://github.com/the-coding-carrot/devops-lecture-project/compare/auth-service-1.1.0...auth-service-1.2.0) (2026-03-02)
 
 
