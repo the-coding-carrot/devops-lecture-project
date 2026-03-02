@@ -8,6 +8,7 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/product-service/internal"
 )
 
+// product service
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/products", internal.ProductListHandler)

@@ -8,6 +8,7 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/auth-service/internal"
 )
 
+// auth service
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/auth/login", internal.AuthLoginHandler)
