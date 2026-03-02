@@ -17,7 +17,7 @@ func AuthLoginHandler(w http.ResponseWriter, r *http.Request) {
 	username := r.FormValue("username")
 	password := r.FormValue("password")
 	// For simplicity, we'll use a hardcoded username and password
-	// This should be replaced with a proper authentication mechanism
+	// This should be replaced with a proper authentication mechanism later
 	if username == "user" && password == "pass" {
 		token, err := pkg.CreateToken(username)
 		if err != nil {

@@ -10,7 +10,6 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
-	// Checkout
 	mux.HandleFunc("/checkout/placeorder", internal.CheckoutPlaceOrderHandler)
 	port := 8080
 	log.Printf("Server is running on port %d...\n", port)

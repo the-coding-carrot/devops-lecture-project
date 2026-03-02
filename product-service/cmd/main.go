@@ -10,7 +10,6 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
-	// Product
 	mux.HandleFunc("/products", internal.ProductListHandler)
 	mux.HandleFunc("/products/{id}", internal.ProductDetailHandler)
 	port := 8080
