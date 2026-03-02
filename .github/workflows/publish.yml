@@ -38,6 +38,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./${{ steps.service.outputs.service }}
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ vars.DOCKERHUB_USERNAME }}/${{ steps.service.outputs.service }}:${{ steps.service.outputs.version }}

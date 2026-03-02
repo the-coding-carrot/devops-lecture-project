@@ -8,7 +8,7 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/product-service/pkg"
 )
 
-// Static data for three products
+// Static data for the products
 var products = []pkg.Product{
 	{ID: 1, Name: "Minecraft", Price: 24.99},
 	{ID: 2, Name: "Grand Theft Auto V", Price: 59.99},

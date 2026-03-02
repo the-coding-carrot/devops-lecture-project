@@ -7,6 +7,8 @@ import (
 	"github.com/the-coding-carrot/devops-lecture-project/checkout-service/pkg"
 )
 
+// Checkout Handler
+
 func CheckoutPlaceOrderHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
