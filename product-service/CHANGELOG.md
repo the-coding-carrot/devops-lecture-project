@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.1...product-service-1.3.2) (2026-03-02)
+
+
+### Bug Fixes
+
+* fixed services for kubernetes ([#22](https://github.com/the-coding-carrot/devops-lecture-project/issues/22)) ([d233d29](https://github.com/the-coding-carrot/devops-lecture-project/commit/d233d298349ec9e95d5900301b311a3389f75903))
+
 ## [1.3.1](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.0...product-service-1.3.1) (2026-03-02)
 
 
