@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/the-coding-carrot/devops-lecture-project/compare/auth-service-1.1.0...auth-service-1.2.0) (2026-03-02)
+
+
+### Features
+
+* testing the publishing of images ([#18](https://github.com/the-coding-carrot/devops-lecture-project/issues/18)) ([71ca5ce](https://github.com/the-coding-carrot/devops-lecture-project/commit/71ca5ce50f2c7dc0500ce705982c4edc1f6dc345))
+
 ## [1.1.0](https://github.com/the-coding-carrot/devops-lecture-project/compare/auth-service-1.0.0...auth-service-1.1.0) (2026-02-28)
 
 
