@@ -28,4 +28,23 @@ jobs:
       run: go build -v ./auth-service/... ./checkout-service/... ./product-service/...
 
     - name: Test
-      run: go test -v ./auth-service/... ./checkout-service/... ./product-service/...
+      run: go test -v -cover ./auth-service/... ./checkout-service/... ./product-service/...
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Bruno
+      run: npm install -g @usebruno/cli
+
+    - name: Run docker compose
+      uses: hoverkraft-tech/compose-action@4894d2492015c1774ee5a13a95b1072093087ec3 # v2.5.0
+      with:
+        compose-file: "./docker-compose.yml"
+
+    - name: Run integration tests
+      working-directory: ./api-requests/collections/webshop
+      run: bru run --env local
+
+    
