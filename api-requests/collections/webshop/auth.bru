@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{base_url}}/auth/login
+  url: {{auth_base_URL}}/auth/login
   body: formUrlEncoded
   auth: inherit
 }
@@ -13,6 +13,11 @@ post {
 body:form-urlencoded {
   username: user
   password: pass
+}
+
+assert {
+  res.status: eq 200
+  res.body.token: isDefined
 }
 
 script:post-response {
