@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.3](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.2...product-service-1.3.3) (2026-04-13)
+
+
+### Bug Fixes
+
+* integrated SBOM scan (fix to trigger GitHub Action) ([604f80a](https://github.com/the-coding-carrot/devops-lecture-project/commit/604f80a4c5ef5a9d82531d8a5b20b5a53b12b46a))
+* integrated SBOM scan (fix to trigger GitHub Action) ([50a48aa](https://github.com/the-coding-carrot/devops-lecture-project/commit/50a48aa61460ccb264d8b75fdf93fc8d591961a9))
+
 ## [1.3.2](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.1...product-service-1.3.2) (2026-03-02)
 
 
