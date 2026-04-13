@@ -14,6 +14,6 @@ func main() {
 	mux.HandleFunc("/products", internal.ProductListHandler)
 	mux.HandleFunc("/products/{id}", internal.ProductDetailHandler)
 	port := 8080
-	log.Printf("Server is running on port %d...\n", port)
+	log.Printf("The Server is running on port %d...\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), mux))
 }
