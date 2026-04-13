@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.5](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.4...product-service-1.3.5) (2026-04-13)
+
+
+### Bug Fixes
+
+* fixed Docker Workflow ([6446954](https://github.com/the-coding-carrot/devops-lecture-project/commit/6446954ef3306c8cf34ca87a96ea4b938d6fdc54))
+* fixed Docker Workflow ([be3c211](https://github.com/the-coding-carrot/devops-lecture-project/commit/be3c21116a724000db4521f4eb0a2a29f9ab8812))
+
 ## [1.3.4](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.3...product-service-1.3.4) (2026-04-13)
 
 

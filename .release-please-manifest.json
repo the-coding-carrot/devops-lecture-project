@@ -1,5 +1,5 @@
 {
-    "auth-service": "1.2.4",
-    "checkout-service": "1.2.4",
-    "product-service": "1.3.4"
+    "auth-service": "1.2.5",
+    "checkout-service": "1.2.5",
+    "product-service": "1.3.5"
 }
