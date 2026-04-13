@@ -33,6 +33,35 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Build local image for scanning
+        uses: docker/build-push-action@v6
+        with:
+          context: ./${{ steps.service.outputs.service }}
+          platforms: linux/amd64,linux/arm64
+          push: false
+          load: true
+          tags: ${{ steps.service.outputs.service }}:local
+
+      - name: Generate SBOM with syft
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ steps.service.outputs.service }}:local
+          format: spdx.json
+          output-file: sbom.spdx.json
+
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sbom-${{ steps.service.outputs.service }}-${{ steps.service.outputs.version }}
+          path: sbom.spdx.json
+
+      - name: Scan SBOM with grype
+        uses: anchore/scan-action@v3
+        with:
+          sbom: sbom.spdx.json
+          fail-build: false
+
       -
         name: Build and push
         uses: docker/build-push-action@v6
