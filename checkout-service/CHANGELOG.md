@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.4](https://github.com/the-coding-carrot/devops-lecture-project/compare/checkout-service-1.2.3...checkout-service-1.2.4) (2026-04-13)
+
+
+### Bug Fixes
+
+* fixed SBOM workflow ([0a9f743](https://github.com/the-coding-carrot/devops-lecture-project/commit/0a9f743a28898a32ebbee20ca676850d60482341))
+* fixed SBOM workflow ([0e283ec](https://github.com/the-coding-carrot/devops-lecture-project/commit/0e283ecdf8617e8f4aa704e92d8856381791d005))
+
 ## [1.2.3](https://github.com/the-coding-carrot/devops-lecture-project/compare/checkout-service-1.2.2...checkout-service-1.2.3) (2026-04-13)
 
 
