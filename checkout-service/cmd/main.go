@@ -13,6 +13,6 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/checkout/placeorder", internal.CheckoutPlaceOrderHandler)
 	port := 8080
-	log.Printf("The Server is running on port %d...\n", port)
+	log.Printf("Server is running on port %d...\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), mux))
 }

@@ -46,7 +46,7 @@ jobs:
         uses: anchore/sbom-action@v0
         with:
           image: ${{ steps.service.outputs.service }}:local
-          format: spdx.json
+          format: spdx-json
           output-file: sbom.spdx.json
 
       - name: Upload SBOM as artifact
