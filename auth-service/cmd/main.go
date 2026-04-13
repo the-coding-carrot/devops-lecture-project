@@ -14,6 +14,6 @@ func main() {
 	mux.HandleFunc("/auth/login", internal.AuthLoginHandler)
 	mux.HandleFunc("/auth/logout", internal.AuthLogoutHandler)
 	port := 8080
-	log.Printf("The Server is running on port %d...\n", port)
+	log.Printf("Server is running on port %d...\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), mux))
 }

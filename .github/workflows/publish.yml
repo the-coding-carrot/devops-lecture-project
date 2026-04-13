@@ -51,7 +51,7 @@ jobs:
           output-file: sbom.spdx.json
 
       - name: Upload SBOM as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sbom-${{ steps.service.outputs.service }}-${{ steps.service.outputs.version }}
           path: sbom.spdx.json
