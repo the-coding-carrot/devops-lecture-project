@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.6](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.5...product-service-1.3.6) (2026-04-13)
+
+
+### Bug Fixes
+
+* fixed syft workflow ([60d2cb9](https://github.com/the-coding-carrot/devops-lecture-project/commit/60d2cb9380f51ae923a55181054e6670bef83914))
+* fixed syft workflow ([cb68f0c](https://github.com/the-coding-carrot/devops-lecture-project/commit/cb68f0ca828cb2befd90288b88990a35cfd83a50))
+
 ## [1.3.5](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.4...product-service-1.3.5) (2026-04-13)
 
 
