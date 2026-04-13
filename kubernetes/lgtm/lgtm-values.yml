@@ -1,0 +1,49 @@
+# ---------------------------------------------------------
+# Anforderung 1: Zusätzliche Datenquelle einbinden
+# ---------------------------------------------------------
+grafana:
+  additionalDataSources:
+    - name: Prometheus-External
+      type: prometheus
+      # Beispiel-URL, kann an euer tatsächliches Setup angepasst werden
+      url: http://prometheus-server.monitoring.svc.cluster.local 
+      access: proxy
+      isDefault: false
+
+  # ---------------------------------------------------------
+  # Anforderung 2: Einfaches Dashboard für Cluster-CPU
+  # ---------------------------------------------------------
+  dashboards:
+    default:
+      cluster-cpu-dashboard:
+        # Hier definieren wir das Dashboard direkt als Inline-JSON
+        json: |
+          {
+            "title": "Cluster CPU Usage",
+            "timezone": "browser",
+            "panels": [
+              {
+                "type": "timeseries",
+                "title": "CPU Usage per Pod",
+                "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
+                "targets": [
+                  {
+                    "expr": "sum(rate(container_cpu_usage_seconds_total[5m])) by (pod)",
+                    "legendFormat": "{{pod}}"
+                  }
+                ]
+              }
+            ]
+          }
+
+# ---------------------------------------------------------
+# Anforderung 3: Anzahl der Replicas für Tempo verändern
+# ---------------------------------------------------------
+tempo:
+  # Wenn ihr das tempo-distributed Chart nutzt, werden die 
+  # Komponenten einzeln skaliert. Hier erhöhen wir die Ingester-Replicas.
+  ingester:
+    replicas: 3
+  
+  # Falls ihr das Standard-Tempo (Monolith) nutzt, sähe es so aus:
+  # replicas: 3

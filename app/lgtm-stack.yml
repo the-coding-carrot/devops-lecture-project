@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lgtm-stack
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # Quelle 1: Das offizielle Grafana Helm-Repository für den LGTM-Stack
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: lgtm-distributed  # Nutzt das kombinierte LGTM-Chart
+      targetRevision: 1.0.0 # Aktuelle Version des LGTM-Stacks, kann angepasst werden
+      helm:
+        valueFiles:
+          # Verweist auf die Values-Datei in deinem GitHub-Repo (Quelle 2)
+          - $values/kubernetes/lgtm/lgtm-values.yml
+    
+    # Quelle 2: Dein eigenes Git-Repository, in dem die Values-Datei liegt
+    - repoURL: https://github.com/the-coding-carrot/devops-lecture-project
+      targetRevision: HEAD
+      ref: values
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: lgtm # Separater Namespace für den Observability-Stack
+  
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
