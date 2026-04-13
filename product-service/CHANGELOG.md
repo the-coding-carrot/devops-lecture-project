@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.7](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.6...product-service-1.3.7) (2026-04-13)
+
+
+### Bug Fixes
+
+* gave write permissions to publish workflow ([1761810](https://github.com/the-coding-carrot/devops-lecture-project/commit/1761810d2e7b53a53db698cab93efc4e7cd9faab))
+* gave write permissions to publish workflow ([b78f700](https://github.com/the-coding-carrot/devops-lecture-project/commit/b78f700cb54e452af0ba78554bc908afdc31ab08))
+
 ## [1.3.6](https://github.com/the-coding-carrot/devops-lecture-project/compare/product-service-1.3.5...product-service-1.3.6) (2026-04-13)
 
 
