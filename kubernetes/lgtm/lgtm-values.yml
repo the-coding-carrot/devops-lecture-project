@@ -1,22 +1,14 @@
-# ---------------------------------------------------------
-# Anforderung 1: Zusätzliche Datenquelle einbinden
-# ---------------------------------------------------------
 grafana:
   additionalDataSources:
     - name: Prometheus-External
       type: prometheus
-      # Beispiel-URL, kann an euer tatsächliches Setup angepasst werden
       url: http://prometheus-server.monitoring.svc.cluster.local 
       access: proxy
       isDefault: false
 
-  # ---------------------------------------------------------
-  # Anforderung 2: Einfaches Dashboard für Cluster-CPU
-  # ---------------------------------------------------------
   dashboards:
     default:
       cluster-cpu-dashboard:
-        # Hier definieren wir das Dashboard direkt als Inline-JSON
         json: |
           {
             "title": "Cluster CPU Usage",

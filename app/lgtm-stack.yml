@@ -12,10 +12,8 @@ spec:
       targetRevision: 1.0.0 # Aktuelle Version des LGTM-Stacks, kann angepasst werden
       helm:
         valueFiles:
-          # Verweist auf die Values-Datei in deinem GitHub-Repo (Quelle 2)
           - $values/kubernetes/lgtm/lgtm-values.yml
     
-    # Quelle 2: Dein eigenes Git-Repository, in dem die Values-Datei liegt
     - repoURL: https://github.com/the-coding-carrot/devops-lecture-project
       targetRevision: HEAD
       ref: values
