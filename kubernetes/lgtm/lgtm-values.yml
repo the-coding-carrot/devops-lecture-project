@@ -22,13 +22,22 @@ grafana:
         type: tempo
         url: http://lgtm-stack-tempo-query-frontend.lgtm.svc.cluster.local:3100
         access: proxy
+  
+  sidecar:
+    dashboards:
+      enabled: true 
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: lgtm
 
   dashboards:
     default:
       cluster-cpu-dashboard:
         json: |
           {
+            "uid": "cluster-cpu-01",
             "title": "Cluster CPU Usage",
+            "schemaVersion": 36,
             "timezone": "browser",
             "panels": [
               {
@@ -70,31 +79,3 @@ loki:
     enabled: true
     size: 10Gi
     storageClass: "default"
-
-# --- Der Metrik-Sammler (Grafana Alloy) ---
-alloy:
-  enabled: true
-  controller:
-    type: daemonset  # Läuft auf jedem Server, um alles einzusammeln
-  alloy:
-    configMap:
-      create: true
-      content: |
-        prometheus.remote_write "mimir" {
-          endpoint {
-            url = "http://lgtm-stack-mimir-distributor.lgtm.svc.cluster.local:8080/api/v1/push"
-            headers = {
-              "X-Scope-OrgID" = "lgtm-student-project", // Gleicher Ausweis wie bei Grafana!
-            }
-          }
-        }
-
-        // Standard Kubernetes Metriken (Nodes & Pods)
-
-        prometheus.exporter.unix "targets" { }
-        prometheus.scrape "kubernetes_nodes" {
-          targets = prometheus.exporter.unix.targets.targets
-          forward_to = [prometheus.remote_write.mimir.receiver]
-        }
-        
-        // Hier können wir später noch den Webshop hinzufügen
