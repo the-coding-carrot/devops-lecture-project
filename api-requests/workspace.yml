@@ -6,6 +6,8 @@ info:
 collections:
   - name: "login"
     path: "collections/login"
+  - name: "login"
+    path: "collections/webshop"
 
 specs:
 
