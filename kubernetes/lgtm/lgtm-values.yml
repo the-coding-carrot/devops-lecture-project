@@ -63,3 +63,27 @@ loki:
     enabled: true
     size: 10Gi
     storageClass: "default"
+
+# --- Der Metrik-Sammler (Grafana Alloy) ---
+alloy:
+  enabled: true
+  controller:
+    type: daemonset  # Läuft auf jedem Server, um alles einzusammeln
+  alloy:
+    configMap:
+      create: true
+      content: |
+        // Metriken einsammeln und an Mimir senden
+        prometheus.remote_write "mimir" {
+          endpoint {
+            url = "http://lgtm-stack-mimir-distributor.lgtm.svc.cluster.local:8080/api/v1/push"
+          }
+        }
+
+        // Standard Kubernetes Metriken (Nodes & Pods)
+        prometheus.scrape "kubernetes_nodes" {
+          targets = prometheus.exporter.unix.targets.targets
+          forward_to = [prometheus.remote_write.mimir.receiver]
+        }
+        
+        // Hier können wir später noch den Webshop hinzufügen
