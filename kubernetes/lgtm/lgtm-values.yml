@@ -1,22 +1,14 @@
-# ---------------------------------------------------------
-# Anforderung 1: Zusätzliche Datenquelle einbinden
-# ---------------------------------------------------------
 grafana:
   additionalDataSources:
     - name: Prometheus-External
       type: prometheus
-      # Beispiel-URL, kann an euer tatsächliches Setup angepasst werden
       url: http://prometheus-server.monitoring.svc.cluster.local 
       access: proxy
       isDefault: false
 
-  # ---------------------------------------------------------
-  # Anforderung 2: Einfaches Dashboard für Cluster-CPU
-  # ---------------------------------------------------------
   dashboards:
     default:
       cluster-cpu-dashboard:
-        # Hier definieren wir das Dashboard direkt als Inline-JSON
         json: |
           {
             "title": "Cluster CPU Usage",
@@ -35,15 +27,36 @@ grafana:
               }
             ]
           }
+  
+  # --- Speicher für Grafana ---
+  persistence:
+    enabled: true
+    size: 5Gi
+    storageClass: "default"  # Ersetze "default" falls dein `kubectl get storageclass` etwas anderes (wie managed-csi) ausgibt!
 
 # ---------------------------------------------------------
 # Anforderung 3: Anzahl der Replicas für Tempo verändern
 # ---------------------------------------------------------
 tempo:
-  # Wenn ihr das tempo-distributed Chart nutzt, werden die 
-  # Komponenten einzeln skaliert. Hier erhöhen wir die Ingester-Replicas.
   ingester:
     replicas: 3
   
-  # Falls ihr das Standard-Tempo (Monolith) nutzt, sähe es so aus:
-  # replicas: 3
+  # --- Speicher für Tempo ---
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: "default"
+
+# --- Falls Loki und Prometheus auch in dem Chart sind, brauchen die das auch! ---
+loki:
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: "default"
+
+prometheus:
+  server:
+    persistentVolume:
+      enabled: true
+      size: 10Gi
+      storageClass: "default"
