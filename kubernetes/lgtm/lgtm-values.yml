@@ -4,7 +4,11 @@ grafana:
       type: prometheus
       url: http://lgtm-stack-mimir-query-frontend.lgtm.svc.cluster.local:8080
       access: proxy
-      isDefault: true # Machen wir zum Standard, damit das Dashboard sofort geht
+      isDefault: true
+      jsonData:
+        httpHeaderName1: 'X-Scope-OrgID'
+      secureJsonData:
+        httpHeaderValue1: 'lgtm-student-project' 
 
     - name: Loki
       type: loki
@@ -26,12 +30,12 @@ grafana:
             "panels": [
               {
                 "type": "timeseries",
-                "title": "CPU Usage per Pod",
+                "title": "CPU Usage per Server Node",
                 "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
                 "targets": [
                   {
-                    "expr": "sum(rate(container_cpu_usage_seconds_total[5m])) by (pod)",
-                    "legendFormat": "{{pod}}"
+                    "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m])) by (instance)",
+                    "legendFormat": "{{instance}}"
                   }
                 ]
               }
@@ -73,14 +77,18 @@ alloy:
     configMap:
       create: true
       content: |
-        // Metriken einsammeln und an Mimir senden
         prometheus.remote_write "mimir" {
           endpoint {
             url = "http://lgtm-stack-mimir-distributor.lgtm.svc.cluster.local:8080/api/v1/push"
+            headers = {
+              "X-Scope-OrgID" = "lgtm-student-project", // Gleicher Ausweis wie bei Grafana!
+            }
           }
         }
 
         // Standard Kubernetes Metriken (Nodes & Pods)
+
+        prometheus.exporter.unix "targets" { }
         prometheus.scrape "kubernetes_nodes" {
           targets = prometheus.exporter.unix.targets.targets
           forward_to = [prometheus.remote_write.mimir.receiver]
