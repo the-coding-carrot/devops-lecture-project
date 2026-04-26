@@ -1,24 +1,27 @@
 grafana:
-  additionalDataSources:
-    - name: Mimir
-      type: prometheus
-      url: http://lgtm-stack-mimir-query-frontend.lgtm.svc.cluster.local:8080
-      access: proxy
-      isDefault: true
-      jsonData:
-        httpHeaderName1: 'X-Scope-OrgID'
-      secureJsonData:
-        httpHeaderValue1: 'lgtm-student-project' 
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: Mimir
+        type: prometheus
+        url: http://lgtm-stack-mimir-nginx/prometheus
+        access: proxy
+        isDefault: true
+        jsonData:
+          httpHeaderName1: 'X-Scope-OrgID'
+        secureJsonData:
+          httpHeaderValue1: 'lgtm-student-project' 
 
-    - name: Loki
-      type: loki
-      url: http://lgtm-stack-loki-gateway.lgtm.svc.cluster.local
-      access: proxy
+      - name: Loki
+        type: loki
+        url: http://lgtm-stack-loki-gateway.lgtm.svc.cluster.local
+        access: proxy
 
-    - name: Tempo
-      type: tempo
-      url: http://lgtm-stack-tempo-query-frontend.lgtm.svc.cluster.local:3100
-      access: proxy
+      - name: Tempo
+        type: tempo
+        url: http://lgtm-stack-tempo-query-frontend.lgtm.svc.cluster.local:3100
+        access: proxy
 
   dashboards:
     default:
