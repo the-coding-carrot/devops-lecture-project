@@ -1,10 +1,20 @@
 grafana:
   additionalDataSources:
-    - name: Prometheus-External
+    - name: Mimir
       type: prometheus
-      url: http://prometheus-server.monitoring.svc.cluster.local 
+      url: http://lgtm-stack-mimir-query-frontend.lgtm.svc.cluster.local:8080
       access: proxy
-      isDefault: false
+      isDefault: true # Machen wir zum Standard, damit das Dashboard sofort geht
+
+    - name: Loki
+      type: loki
+      url: http://lgtm-stack-loki-gateway.lgtm.svc.cluster.local
+      access: proxy
+
+    - name: Tempo
+      type: tempo
+      url: http://lgtm-stack-tempo-query-frontend.lgtm.svc.cluster.local:3100
+      access: proxy
 
   dashboards:
     default:
@@ -53,10 +63,3 @@ loki:
     enabled: true
     size: 10Gi
     storageClass: "default"
-
-prometheus:
-  server:
-    persistentVolume:
-      enabled: true
-      size: 10Gi
-      storageClass: "default"
