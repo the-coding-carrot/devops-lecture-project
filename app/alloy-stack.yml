@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alloy-stack
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: alloy
+      targetRevision: 0.10.0 # Eine stabile Alloy Version
+      helm:
+        valueFiles:
+          - $values/kubernetes/lgtm/alloy-values.yml
+    
+    - repoURL: https://github.com/the-coding-carrot/devops-lecture-project
+      targetRevision: HEAD
+      ref: values
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: lgtm
+  
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
