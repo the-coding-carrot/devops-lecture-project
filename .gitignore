@@ -26,3 +26,30 @@ go.work.sum
 
 # macOS files
 .DS_Store
+
+
+# Lokale Verzeichnisse (Plugins und Module)
+**/.terraform/*
+
+# tofu state files
+*.tfstate
+*.tfstate.*
+
+# Crash Logs
+crash.log
+crash.*.log
+
+# Variablen-Dateien (falls du Passwörter oder API-Keys darin speicherst)
+*.tfvars
+*.tfvars.json
+*auto.tfvars
+*auto.tfvars.json
+
+# Gespeicherte Plan-Dateien (falls du Ausgaben speicherst)
+*.tfplan
+
+# Lokale Überschreibungen (für lokale Tests)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
